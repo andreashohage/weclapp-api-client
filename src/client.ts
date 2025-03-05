@@ -9,7 +9,6 @@ import {
   FindPartiesQuery,
   FindUsersQuery,
   Party,
-  Task,
   User,
 } from "./types";
 
