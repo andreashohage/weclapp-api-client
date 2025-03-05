@@ -1,0 +1,38 @@
+{
+  "name": "@quantumdream/weclapp-api-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantumdream/weclapp-api-client.git"
+  },
+  "keywords": [],
+  "author": {
+    "email": "npm@andreaszeuch.de",
+    "name": "Andreas Zeuch",
+    "url": "https://cw-it.de"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/quantumdream/weclapp-api-client/issues"
+  },
+  "homepage": "https://github.com/quantumdream/weclapp-api-client#readme",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "ofetch": "^1.4.1"
+  }
+}
