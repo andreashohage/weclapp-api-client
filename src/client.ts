@@ -1,16 +1,20 @@
-import { $Fetch, ofetch } from "ofetch";
-import {
+import { type $Fetch, ofetch } from "ofetch";
+import type {
   Article,
   CreateTaskPayload,
   CreateTaskResponse,
   CreateTimeRecordPayload,
   CreateTimeRecordResponse,
   FindArticlesQuery,
+  FindArticlesResponse,
   FindPartiesQuery,
+  FindPartiesResponse,
   FindUsersQuery,
-  Party,
+  FindUsersResponse,
+  Task,
+  TimeRecord,
   User,
-} from "./types";
+} from "./types.ts";
 
 export class WeclappApiClient {
   private fetch: $Fetch;
@@ -24,15 +28,17 @@ export class WeclappApiClient {
     });
   }
 
-  async findParties(findPartiesQuery?: FindPartiesQuery) {
-    const { result } = await this.fetch<{ result: Party[] }>("party", {
+  async findParties(
+    findPartiesQuery?: FindPartiesQuery
+  ): Promise<FindPartiesResponse> {
+    const { result } = await this.fetch<FindPartiesResponse>("party", {
       query: findPartiesQuery,
     });
 
     return { result };
   }
 
-  async findUsers(findUsersQuery?: FindUsersQuery) {
+  async findUsers(findUsersQuery?: FindUsersQuery): Promise<FindUsersResponse> {
     const { result } = await this.fetch<{ result: User[] }>("user", {
       query: findUsersQuery,
     });
@@ -40,7 +46,9 @@ export class WeclappApiClient {
     return { result };
   }
 
-  async findArticles(findArticlesQuery?: FindArticlesQuery) {
+  async findArticles(
+    findArticlesQuery?: FindArticlesQuery
+  ): Promise<FindArticlesResponse> {
     const { result } = await this.fetch<{ result: Article[] }>("article", {
       query: findArticlesQuery,
     });
@@ -48,7 +56,7 @@ export class WeclappApiClient {
     return { result };
   }
 
-  async createTask(createTaskPayload: CreateTaskPayload) {
+  async createTask(createTaskPayload: CreateTaskPayload): Promise<Task> {
     const task = await this.fetch<CreateTaskResponse>("task", {
       method: "POST",
       body: createTaskPayload,
@@ -57,7 +65,9 @@ export class WeclappApiClient {
     return task;
   }
 
-  async createTimeRecord(createTimeRecordPayload: CreateTimeRecordPayload) {
+  async createTimeRecord(
+    createTimeRecordPayload: CreateTimeRecordPayload
+  ): Promise<TimeRecord> {
     const timeRecord = await this.fetch<CreateTimeRecordResponse>(
       "timeRecord",
       {

@@ -212,3 +212,15 @@ export type FindArticlesQuery = {
   pageSize?: number;
   "name-eq"?: string;
 };
+
+export type FindPartiesResponse = {
+  result: Party[];
+};
+
+export type FindUsersResponse = {
+  result: User[];
+};
+
+export type FindArticlesResponse = {
+  result: Article[];
+};
