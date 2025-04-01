@@ -1,12 +1,16 @@
 import { type $Fetch, ofetch } from "ofetch";
 import type {
   Article,
+  Contact,
   CreateTaskPayload,
   CreateTaskResponse,
   CreateTimeRecordPayload,
   CreateTimeRecordResponse,
+  Customer,
   FindArticlesQuery,
   FindArticlesResponse,
+  FindContactsQuery,
+  FindCustomersQuery,
   FindPartiesQuery,
   FindPartiesResponse,
   FindUsersQuery,
@@ -77,5 +81,25 @@ export class WeclappApiClient {
     );
 
     return timeRecord;
+  }
+
+  async findCustomers(
+    findCustomersQuery?: FindCustomersQuery
+  ): Promise<{ result: Customer[] }> {
+    const { result } = await this.fetch<{ result: Customer[] }>("customer", {
+      query: findCustomersQuery,
+    });
+
+    return { result };
+  }
+
+  async findContacts(
+    findContactsQuery: FindContactsQuery
+  ): Promise<{ result: Contact[] }> {
+    const { result } = await this.fetch<{ result: Contact[] }>("contact", {
+      query: findContactsQuery,
+    });
+
+    return { result };
   }
 }

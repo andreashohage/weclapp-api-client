@@ -63,6 +63,53 @@ export type User = {
   status: string;
   userRoles: [];
   username: string;
+  phoneNumber: string;
+};
+
+export type Customer = {
+  id: string;
+  version: string;
+  addresses: [];
+  bankAccounts: [];
+  blocked: boolean;
+  commercialLanguageId: string;
+  commissionSalesPartners: [];
+  company: string;
+  contacts: [];
+  createdDate: number;
+  currencyId: string;
+  currencyName: string;
+  customAttributes: [];
+  customerNumber: string;
+  customerTopics: [];
+  deliveryBlock: boolean;
+  email: string;
+  fax: string;
+  insolvent: boolean;
+  insured: boolean;
+  invoiceBlock: boolean;
+  lastModifiedDate: number;
+  oldCustomerNumber: string;
+  onlineAccounts: [];
+  optIn: boolean;
+  optInLetter: boolean;
+  optInPhone: boolean;
+  optInSms: boolean;
+  partyType: string;
+  paymentMethodId: string;
+  paymentMethodName: string;
+  phone: string;
+  primaryAddressId: string;
+  responsibleUserFixed: boolean;
+  responsibleUserId: string;
+  responsibleUserUsername: string;
+  salesChannel: string;
+  tags: [];
+  termOfPaymentId: string;
+  termOfPaymentName: string;
+  useCustomsTariffNumber: boolean;
+  vatRegistrationNumber: string;
+  website: string;
 };
 
 export type Article = {
@@ -223,4 +270,20 @@ export type FindUsersResponse = {
 
 export type FindArticlesResponse = {
   result: Article[];
+};
+
+export type FindCustomersQuery = {
+  pageSize?: number;
+  page?: number;
+};
+
+export type FindContactsQuery = {
+  pageSize?: number;
+  page?: number;
+};
+
+export type Contact = {
+  id: string;
+  phone?: string;
+  mobilePhone1?: string;
 };
