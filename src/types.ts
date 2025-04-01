@@ -290,3 +290,11 @@ export type Contact = {
   phone?: string;
   mobilePhone1?: string;
 };
+
+export type FindCustomersResponse = {
+  result: Customer[];
+};
+
+export type FindContactsResponse = {
+  result: Contact[];
+};

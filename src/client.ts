@@ -10,11 +10,14 @@ import type {
   FindArticlesQuery,
   FindArticlesResponse,
   FindContactsQuery,
+  FindContactsResponse,
   FindCustomersQuery,
+  FindCustomersResponse,
   FindPartiesQuery,
   FindPartiesResponse,
   FindUsersQuery,
   FindUsersResponse,
+  Party,
   Task,
   TimeRecord,
   User,
@@ -34,7 +37,7 @@ export class WeclappApiClient {
 
   async findParties(
     findPartiesQuery?: FindPartiesQuery
-  ): Promise<FindPartiesResponse> {
+  ): Promise<{ result: Party[] }> {
     const { result } = await this.fetch<FindPartiesResponse>("party", {
       query: findPartiesQuery,
     });
@@ -42,8 +45,10 @@ export class WeclappApiClient {
     return { result };
   }
 
-  async findUsers(findUsersQuery?: FindUsersQuery): Promise<FindUsersResponse> {
-    const { result } = await this.fetch<{ result: User[] }>("user", {
+  async findUsers(
+    findUsersQuery?: FindUsersQuery
+  ): Promise<{ result: User[] }> {
+    const { result } = await this.fetch<FindUsersResponse>("user", {
       query: findUsersQuery,
     });
 
@@ -52,8 +57,8 @@ export class WeclappApiClient {
 
   async findArticles(
     findArticlesQuery?: FindArticlesQuery
-  ): Promise<FindArticlesResponse> {
-    const { result } = await this.fetch<{ result: Article[] }>("article", {
+  ): Promise<{ result: Article[] }> {
+    const { result } = await this.fetch<FindArticlesResponse>("article", {
       query: findArticlesQuery,
     });
 
@@ -86,7 +91,7 @@ export class WeclappApiClient {
   async findCustomers(
     findCustomersQuery?: FindCustomersQuery
   ): Promise<{ result: Customer[] }> {
-    const { result } = await this.fetch<{ result: Customer[] }>("customer", {
+    const { result } = await this.fetch<FindCustomersResponse>("customer", {
       query: findCustomersQuery,
     });
 
@@ -96,7 +101,7 @@ export class WeclappApiClient {
   async findContacts(
     findContactsQuery: FindContactsQuery
   ): Promise<{ result: Contact[] }> {
-    const { result } = await this.fetch<{ result: Contact[] }>("contact", {
+    const { result } = await this.fetch<FindContactsResponse>("contact", {
       query: findContactsQuery,
     });
 
