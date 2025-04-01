@@ -284,6 +284,9 @@ export type FindContactsQuery = {
 
 export type Contact = {
   id: string;
+  email: string;
+  lastName: string;
+  partyType: "PERSON";
   phone?: string;
   mobilePhone1?: string;
 };
