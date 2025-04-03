@@ -15,10 +15,13 @@ import type {
   FindCustomersResponse,
   FindPartiesQuery,
   FindPartiesResponse,
+  FindTicketsQuery,
+  FindTicketsResponse,
   FindUsersQuery,
   FindUsersResponse,
   Party,
   Task,
+  Ticket,
   TimeRecord,
   User,
 } from "./types.ts";
@@ -103,6 +106,16 @@ export class WeclappApiClient {
   ): Promise<{ result: Contact[] }> {
     const { result } = await this.fetch<FindContactsResponse>("contact", {
       query: findContactsQuery,
+    });
+
+    return { result };
+  }
+
+  async findTickets(
+    findTicketsQuery: FindTicketsQuery
+  ): Promise<{ result: Ticket[] }> {
+    const { result } = await this.fetch<FindTicketsResponse>("ticket", {
+      query: findTicketsQuery,
     });
 
     return { result };

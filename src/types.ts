@@ -298,3 +298,136 @@ export type FindCustomersResponse = {
 export type FindContactsResponse = {
   result: Contact[];
 };
+
+export type Ticket = {
+  additionalProperties: {
+    assignmentTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    billableTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    costOfServices: [
+      {
+        amountInCompanyCurrency: string;
+      }
+    ];
+    invoiceableTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    processTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    resolutionTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    responseTime: [
+      {
+        durationSeconds: number;
+      }
+    ];
+    tasksCompleted: boolean[];
+    tasksCompletedPercentage: string[];
+  };
+  result: [
+    {
+      id: string;
+      createdDate: number;
+      lastModifiedDate: number;
+      version: string;
+      customAttributes: [
+        {
+          attributeDefinitionId: string;
+          booleanValue: false;
+          dateValue: number;
+          entityId: string;
+          entityReferences: [
+            {
+              entityId: string;
+              entityName: string;
+            }
+          ];
+          numberValue: string;
+          selectedValueId: string;
+          selectedValues: [
+            {
+              id: string;
+            }
+          ];
+          stringValue: string;
+        }
+      ];
+      assignedPoolingGroupId: string;
+      assignedUserId: string;
+      billable: false;
+      billableStatus: false;
+      ccEmailAddresses: string;
+      contactId: string;
+      contractId: string;
+      description: string;
+      disableEmailTemplates: false;
+      email: string;
+      entityReferences: [
+        {
+          entityId: string;
+          entityName: string;
+        }
+      ];
+      finishedDate: number;
+      firstName: string;
+      followUpDate: number;
+      invoicingStatus: "INVOICED";
+      isTemplate: false;
+      language: string;
+      lastName: string;
+      legacyArticleId: string;
+      legacyTimeAndMaterialTicket: false;
+      mail2TicketId: string;
+      mobilePhoneNumber: string;
+      note: string;
+      partyId: string;
+      performanceRecordedStatus: "NOT_PERFORMANCE_RECORDED";
+      phoneNumber: string;
+      publicPageExpirationDate: number;
+      publicPageUuid: string;
+      resolvedYourIssue: false;
+      responsibleUserId: string;
+      room: string;
+      salesOrderId: string;
+      solutionDueDate: number;
+      subject: string;
+      tags: string[];
+      ticketCategoryId: string;
+      ticketChannelId: string;
+      ticketNumber: string;
+      ticketPriorityId: string;
+      ticketRating: "STARS_1";
+      ticketRatingComment: string;
+      ticketRatingDate: number;
+      ticketServiceLevelAgreementId: string;
+      ticketStatusId: string;
+      ticketTypeId: string;
+      watchers: [
+        {
+          id: string;
+        }
+      ];
+    }
+  ];
+};
+
+export type FindTicketsQuery = { page?: number; pageSize?: number };
+
+export type FindTicketsResponse = {
+  result: Ticket[];
+};
