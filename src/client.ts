@@ -102,7 +102,7 @@ export class WeclappApiClient {
   }
 
   async findContacts(
-    findContactsQuery: FindContactsQuery
+    findContactsQuery?: FindContactsQuery
   ): Promise<{ result: Contact[] }> {
     const { result } = await this.fetch<FindContactsResponse>("contact", {
       query: findContactsQuery,
@@ -112,7 +112,7 @@ export class WeclappApiClient {
   }
 
   async findTickets(
-    findTicketsQuery: FindTicketsQuery
+    findTicketsQuery?: FindTicketsQuery
   ): Promise<{ result: Ticket[] }> {
     const { result } = await this.fetch<FindTicketsResponse>("ticket", {
       query: findTicketsQuery,
