@@ -38,6 +38,13 @@ export class WeclappApiClient {
     });
   }
 
+  raw(endpoint: string, method: string, body: any): Promise<unknown> {
+    return this.fetch(endpoint, {
+      method,
+      body,
+    });
+  }
+
   async findParties(
     findPartiesQuery?: FindPartiesQuery
   ): Promise<{ result: Party[] }> {
