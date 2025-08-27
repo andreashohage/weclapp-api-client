@@ -1,4 +1,4 @@
-import { type $Fetch, ofetch } from "ofetch";
+import { type $Fetch, FetchOptions, ofetch } from "ofetch";
 import type {
   Article,
   Contact,
@@ -40,15 +40,9 @@ export class WeclappApiClient {
 
   raw<T = any>(
     endpoint: string,
-    method: string = "GET",
-    body?: any,
-    query?: any
+    options?: FetchOptions<"json", any>
   ): Promise<T> {
-    return this.fetch(endpoint, {
-      method,
-      body,
-      query,
-    });
+    return this.fetch(endpoint, options);
   }
 
   async findParties(
