@@ -38,7 +38,12 @@ export class WeclappApiClient {
     });
   }
 
-  raw(endpoint: string, method: string, body: any): Promise<unknown> {
+  raw(
+    endpoint: string,
+    method: string = "GET",
+    body?: any,
+    query?: any
+  ): Promise<unknown> {
     return this.fetch(endpoint, {
       method,
       body,
